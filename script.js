@@ -114,7 +114,6 @@ async function getWeatherForLocationName(cityName) {
     }
 }
 
-
 // Event listener for search button
 document.getElementById('search-btn').addEventListener('click', function () {
     const cityInput = document.getElementById('city-input');
@@ -126,9 +125,6 @@ document.getElementById('search-btn').addEventListener('click', function () {
 
 // Event listener for new city button
 document.getElementById('new-city-btn').addEventListener('click', function () {
-    document.getElementById('city-input').value = '';
-    document.getElementById('current-weather').style.display = 'none';
-    document.getElementById('hourly-forecast').style.display = 'none';
-    document.getElementById('search-container').classList.remove('hidden');
-    document.getElementById('result-container').classList.add('hidden');
+    // Refresh the page
+    window.location.reload();
 });
