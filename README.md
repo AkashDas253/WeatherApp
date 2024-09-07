@@ -22,14 +22,11 @@ To run this project locally, follow these steps:
    ```bash
    git clone https://github.com/your-username/weather-app.git```
 
-
 2.  **Navigate to the project directory**:
 
-    bash
-
-    Copy code
-
-    `cd weather-app`
+    ```
+    cd weather-app
+    ```
 
 3.  **Open `index.html` in your browser**: You can simply double-click on the `index.html` file to open it in your default browser, or use a live server extension if you're using VSCode.
 
@@ -52,12 +49,14 @@ To run this project locally, follow these steps:
 ## Project Structure
 
 
-`weather-app/
+```
+weather-app/
 │
 ├── index.html          # Main HTML file
 ├── style.css           # CSS for styling
 ├── script.js           # JavaScript for functionality
-└── README.md           # Project documentation`
+└── README.md           # Project documentation
+```
 
 ## API Integration
 
