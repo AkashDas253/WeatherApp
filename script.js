@@ -85,6 +85,13 @@ function attachWeatherData(data, cityName) {
     resultContainer.classList.remove('hidden');
 }
 
+// Function to display an error message when city is not found
+function displayErrorMessage(message) {
+    const errorMessageDiv = document.getElementById('error-message');
+    errorMessageDiv.textContent = message;
+    errorMessageDiv.style.display = 'block';  // Show the error message
+}
+
 // Function to get weather for a given city name
 async function getWeatherForLocationName(cityName) {
     try {
@@ -97,7 +104,7 @@ async function getWeatherForLocationName(cityName) {
         const geocodeData = await geocodeResponse.json();
         console.log(geocodeData)
         if (geocodeData.length === 0) {
-            console.error('City not found');
+            displayErrorMessage('City not found. Please try again.');
             return;
         }
 
@@ -107,10 +114,11 @@ async function getWeatherForLocationName(cityName) {
         if (weatherData) {
             attachWeatherData(weatherData, cityName);
         } else {
-            console.error('Failed to fetch weather data');
+            displayErrorMessage('Failed to fetch weather data. Please try again.');
         }
     } catch (error) {
         console.error('Error in getWeatherForLocationName:', error);
+        displayErrorMessage('An error occurred. Please try again.');
     }
 }
 
@@ -119,6 +127,7 @@ document.getElementById('search-btn').addEventListener('click', function () {
     const cityInput = document.getElementById('city-input');
     const cityName = cityInput.value.trim();
     if (cityName) {
+        document.getElementById('error-message').style.display = 'none';  // Hide any previous error messages
         getWeatherForLocationName(cityName);
     }
 });
